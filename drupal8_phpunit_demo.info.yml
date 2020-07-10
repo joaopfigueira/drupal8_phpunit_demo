@@ -1,0 +1,6 @@
+name: PHPUnit Demo Module
+description: PHPUnit Demo Module.
+package: Custom
+
+type: module
+core: 8.x
