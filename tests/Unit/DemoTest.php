@@ -12,31 +12,14 @@ use Drupal\drupal8_phpunit_demo\Demo;
  */
 class DemoTest extends UnitTestCase
 {
-    protected $demo;
-
-    protected function setUp()
-    {
-        $this->demo = new Demo;
-    }
-
-    protected function tearDown()
-    {
-        unset($this->demo);
-    }
-
-    public function values()
-    {
-        return [
-            [1], [5], [10], [15], [20]
-        ];
-    }
-
     /**
      * Class instantiation
      */
     public function testClassCanBeInstatiated()
     {
-        $this->assertInstanceOf('Drupal\drupal8_phpunit_demo\Demo', $this->demo);
+        $demo = new Demo;
+
+        $this->assertInstanceOf('Drupal\drupal8_phpunit_demo\Demo', $demo);
     }
 
     /**
@@ -44,27 +27,34 @@ class DemoTest extends UnitTestCase
      */
     public function testInitialSizeValue()
     {
-        $this->assertEquals(1, $this->demo->getSize());
+        $demo = new Demo;
+
+        $this->assertEquals(1, $demo->getSize());
     }
 
     /**
      * Get size equals Set size
-     * @dataProvider values
      */
-    public function testGetSizeEqualsSetSize($size)
+    public function testGetSizeEqualsSetSize()
     {
-        $this->demo->setSize($size);
-        $this->assertEquals($size, $this->demo->getSize());
+        $size = 1;
+
+        $demo = new Demo;
+        $demo->setSize($size);
+
+        $this->assertEquals($size, $demo->getSize());
     }
 
     /**
      * Get size is NOT different of Set size
-     * @dataProvider values
      */
-    public function testNegativeAssertionOfGetSize($size)
+    public function testNegativeAssertionOfGetSize()
     {
-        $this->demo->setSize($size);
+        $size = 1;
 
-        $this->assertNotEquals($size+1, $this->demo->getSize());
+        $demo = new Demo;
+        $demo->setSize($size);
+
+        $this->assertNotEquals($size+1, $demo->getSize());
     }
 }
