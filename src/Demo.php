@@ -2,31 +2,34 @@
 
 namespace Drupal\drupal8_phpunit_demo;
 
-/**
- * Demo class - a simple demonstration.
- */
 class Demo
 {
-    private $size = 0;
+    private $size;
 
     /**
-     * Sets the size.
+     * Class constructor
+     */
+    public function __construct()
+    {
+        $this->size = 1;
+    }
+
+    /**
+     * Sets size property
      *
-     * @param int $size
+     * @param int size
      */
     public function setSize(int $size)
     {
         $this->size = $size;
-
-        return $size;
     }
 
     /**
-     * Returns the set size.
+     * Gets size property
      *
      * @return int size
      */
-    public function getSize(): int
+    public function getSize()
     {
         return $this->size;
     }
